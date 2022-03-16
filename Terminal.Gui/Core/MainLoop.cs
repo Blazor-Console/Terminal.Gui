@@ -45,13 +45,27 @@ namespace Terminal.Gui {
 	///   does not seem to be a way of supporting this on Windows.
 	/// </remarks>
 	public class MainLoop {
-		internal class Timeout {
+		/// <summary>
+		/// Provides data for timers running manipulation.
+		/// </summary>
+		public sealed class Timeout {
+			/// <summary>
+			/// Time to wait before invoke the callback.
+			/// </summary>
 			public TimeSpan Span;
+			/// <summary>
+			/// The function that will be invoked.
+			/// </summary>
 			public Func<MainLoop, bool> Callback;
 		}
 
 		internal SortedList<long, Timeout> timeouts = new SortedList<long, Timeout> ();
 		internal List<Func<bool>> idleHandlers = new List<Func<bool>> ();
+
+		/// <summary>
+		/// Gets the list of all timeouts.
+		/// </summary>
+		public SortedList<long, Timeout> Timeouts => timeouts;
 
 		/// <summary>
 		/// The current IMainLoopDriver in use.
