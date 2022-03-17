@@ -59,7 +59,7 @@ namespace Terminal.Gui {
 			public Func<MainLoop, bool> Callback;
 		}
 
-		public SortedList<long, Timeout> timeouts = new SortedList<long, Timeout> ();
+		internal SortedList<long, Timeout> timeouts = new SortedList<long, Timeout> ();
 		internal List<Func<bool>> idleHandlers = new List<Func<bool>> ();
 
 		/// <summary>
