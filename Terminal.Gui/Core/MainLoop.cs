@@ -68,6 +68,11 @@ namespace Terminal.Gui {
 		public SortedList<long, Timeout> Timeouts => timeouts;
 
 		/// <summary>
+		/// Gets the list of all idle handlers.
+		/// </summary>
+		public List<Func<bool>> IdleHandlers => idleHandlers;
+
+		/// <summary>
 		/// The current IMainLoopDriver in use.
 		/// </summary>
 		/// <value>The driver.</value>
